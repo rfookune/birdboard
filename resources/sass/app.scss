@@ -1,3 +1,7 @@
 @import "~tailwindcss/base";
 @import "~tailwindcss/components";
 @import "~tailwindcss/utilities";
+
+.button {
+    @apply .bg-blue-600 .text-white .no-underline .rounded-lg .shadow .py-2 .px-5;
+}

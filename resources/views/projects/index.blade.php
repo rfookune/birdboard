@@ -1,22 +1,21 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title></title>
-</head>
-<body>
-    <h1>Birdoard</h1>
+@extends('layouts.app')
+
+@section('content')
+<div class="container">
+    <div style="display: flex; align-items: center;">
+        <h1 style="margin-right: auto">Birdoard</h1>
+        <a href="/projects/create">New Project</a>
+    </div>
     <ul>
         @forelse($projects as $project)
-            <li>
-                <a href="{{ $project->path() }}">
-                    {{ $project->title }}
-                </a>
-            </li>
+        <li>
+            <a href="{{ $project->path() }}">
+                {{ $project->title }}
+            </a>
+        </li>
         @empty
-            <li>No projects yet.</li>
+        <li>No projects yet.</li>
         @endforelse
     </ul>
-</body>
-</html>
+</div>
+@endsection

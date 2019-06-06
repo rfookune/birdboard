@@ -2,8 +2,8 @@
 
 @section('content')
 <div class="container">
-    <div style="display: flex; align-items: center;">
-        <h1 style="margin-right: auto">Birdoard</h1>
+    <div class="flex items-center mb-3">
+        <h1 class="mr-auto">Birdoard</h1>
         <a href="/projects/create">New Project</a>
     </div>
     <ul>

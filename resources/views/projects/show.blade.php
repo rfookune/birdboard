@@ -12,7 +12,7 @@
         <div class="lg:flex lg:flex-wrap -mx-3">
             <div class="lg:w-3/4 px-3 mb-6">
                 <div class="mb-8">
-                    <h2 class="text-lg text-gray-600 font-normal mb-3">Tasks</h2>
+                    <h4 class="text-gray-600 mb-3">Tasks</h4>
                     @foreach($project->tasks as $task)
                         <div class="card mb-3">
                             <form action="{{ $task->path() }}" method="POST">
@@ -34,7 +34,7 @@
                 </div>
 
                 <div class="mb-8">
-                    <h2 class="text-lg text-gray-600 font-normal mb-3">General Notes</h2>
+                    <h4 class="text-gray-600 mb-3">General Notes</h4>
                     <form action="{{ $project->path() }}" method="POST">
                         @csrf
                         @method('PATCH')
@@ -46,6 +46,7 @@
                 </div>
             </div>
             <div class="lg:w-1/4 px-3">
+                <h4 class="text-gray-600 mb-3">Overview</h4>
                 @include('projects.card')
             </div> 
         </div>

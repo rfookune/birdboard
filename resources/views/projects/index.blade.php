@@ -17,7 +17,9 @@
                 </div>
             </div>
         @empty
-            <div>No projects yet.</div>
+            <div class="card w-full">
+                No projects yet.
+            </div>
         @endforelse
     </main>
 </div>

@@ -6,7 +6,7 @@
         <p class="text-gray-500 text-sm font-normal">
             <a href="/projects">My Projects</a> / {{ $project->title }}
         </p>
-        <a href="/projects/create" class="button">New Project</a>
+        <a href="{{ $project->path() . '/edit' }}" class="button">Edit Project</a>
     </header>
     <main>
         <div class="lg:flex lg:flex-wrap -mx-3">

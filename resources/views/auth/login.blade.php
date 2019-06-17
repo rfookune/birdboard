@@ -32,15 +32,14 @@
                         </div>
 
                         <div class="form-group">
-                                <input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-                                <label for="remember" class="ml-1">
-                                    {{ __('Remember Me') }}
-                                </label>
-                            </div>
+                            <input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                            <label for="remember" class="ml-1">
+                                {{ __('Remember Me') }}
+                            </label>
                         </div>
 
                         <div class="form-group">
-                            <button class="button mr-3" type="button">
+                            <button class="button mr-3">
                                 {{ __('Login') }}
                             </button>
                             @if (Route::has('password.request'))

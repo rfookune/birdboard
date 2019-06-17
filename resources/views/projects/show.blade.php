@@ -43,6 +43,14 @@
                         >{{ $project->notes }}</textarea>
                         <button type="submit" class="button">Save</button>
                     </form>
+
+                    @if($errors->any())
+                        <div class="form-group mt-6">
+                            @foreach($errors->all() as $error)
+                                <li class="text-sm text-red-600">{{ $error }}</li>
+                            @endforeach
+                        </div>
+                    @endif
                 </div>
             </div>
             <div class="lg:w-1/4 px-3">

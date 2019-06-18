@@ -56,6 +56,7 @@
             <div class="lg:w-1/4 px-3">
                 <h4 class="text-gray-600 mb-3">Overview</h4>
                 @include('projects.card')
+                @include('projects.activity.card')
             </div> 
         </div>
     </main>

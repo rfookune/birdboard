@@ -8,6 +8,8 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 use Facades\Tests\Setup\ProjectFactory;
 
+use App\Task;
+
 class TriggerActivityTest extends TestCase
 {
     use RefreshDatabase;
@@ -38,7 +40,12 @@ class TriggerActivityTest extends TestCase
         $project->addTask('Some Task');
         
         $this->assertCount(2, $project->activity);
-        $this->assertEquals($project->activity->last()->description, 'created_task');
+
+        tap($project->activity->last(), function($activity) {
+            $this->assertEquals($activity->description, 'created_task');
+            $this->assertInstanceOf(Task::class, $activity->subject);
+            $this->assertEquals('Some Task', $activity->subject->body);
+        });
     }
 
     /** @test */
@@ -53,6 +60,12 @@ class TriggerActivityTest extends TestCase
             ]);
         
         $this->assertCount(3, $project->activity);
+
+        tap($project->activity->last(), function($activity) {
+            $this->assertEquals($activity->description, 'completed_task');
+            $this->assertInstanceOf(Task::class, $activity->subject);
+        });
+
         $this->assertEquals($project->activity->last()->description, 'completed_task');
     }
 

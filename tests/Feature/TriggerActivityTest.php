@@ -22,7 +22,7 @@ class TriggerActivityTest extends TestCase
         $this->assertCount(1, $project->activity);
         
         tap($project->activity->last(), function($activity) {
-            $this->assertEquals($activity->description, 'created');
+            $this->assertEquals($activity->description, 'created_project');
             
             $this->assertNull($activity->changes);
         });
@@ -39,7 +39,7 @@ class TriggerActivityTest extends TestCase
         $this->assertCount(2, $project->activity);
 
         tap($project->activity->last(), function($activity) use ($originalTitle) {
-            $this->assertEquals($activity->description, 'updated');
+            $this->assertEquals($activity->description, 'updated_project');
 
             $expected = [
                 'before' => ['title' => $originalTitle],

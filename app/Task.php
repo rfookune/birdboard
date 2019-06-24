@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Task extends Model
 {
+    use RecordsActivity;
+    
     protected $guarded = [];
 
     // update updated_at on relationship model
@@ -14,6 +16,8 @@ class Task extends Model
     protected $casts = [
         'completed' => 'boolean'
     ];
+
+    protected static $recordableEvents = ['created', 'deleted'];
 
     // Same as having TaskObserver
     // public static function boot()
@@ -51,18 +55,5 @@ class Task extends Model
     public function project()
     {
         return $this->belongsTo(Project::class);
-    }
-
-    public function activity()
-    {
-        return $this->morphMany(Activity::class, 'subject')->latest();
-    }
-
-    public function recordActivity($description)
-    {
-        $this->activity()->create([
-            'project_id' => $this->project_id,
-            'description' => $description
-        ]);
     }
 }
